@@ -17,7 +17,8 @@
   },
   "homepage": "https://github.com/kamilbrk/foolscode-service#readme",
   "dependencies": {
-    "express": "^4.14.0"
+    "express": "^4.14.0",
+    "skip32": "^1.2.1"
   },
   "devDependencies": {
     "gulp": "*",
