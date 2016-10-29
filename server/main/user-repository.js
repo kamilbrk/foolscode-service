@@ -16,7 +16,9 @@ UserRepository.prototype.register = function(username, password, key) {
 UserRepository.prototype.getById = function(id) {
   id = id.toLowerCase();
   for(var i = 0; i < this.users.length; i++) {
-    if (user.id === id) {
+    var user = this.users[i];
+
+    if (user.getId() === id) {
       return user;
     }
   }

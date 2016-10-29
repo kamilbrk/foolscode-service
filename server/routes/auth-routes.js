@@ -19,15 +19,20 @@ router.get('/encrypt', function(req, res) {
 
 
 router.get('/decrypt', function(req, res) {
-  var key = 'qwertyuiop';
-  var num = +req.query.input;
+  var calculator = new DrunkCalculator();
+  var username = req.query.user;
+  var key = req.query.key;
 
-  var crypt = new Skip32(key);
-  var result = crypt.decrypt(num);
+  var user = users.getById(username);  
 
-  res.send({
-    result: result
-  });
+  calculator.calculate(user, key, function(result){
+    if (result.isDrunkEnough && result.isValid)  { 
+      res.status(200).send();
+    }
+    else{
+      res.status(401).send();
+    }
+  })
 });
 
 module.exports = exports = router;
