@@ -1,6 +1,5 @@
 "user strict";
 var gulp    = require('gulp'),
-    bower   = require('gulp-bower'),
     refresh = require('gulp-livereload'),
     notify  = require('gulp-notify'),
     plumber = require('gulp-plumber'),
@@ -30,12 +29,6 @@ gulp.task('stylus', function () {
     .pipe(gulp.dest(paths.styles.dest))
     .pipe(refresh(client))
     .pipe(notify({message: 'Stylus done'}));
-});
-
-
-gulp.task('bowerInstall', function  () {
-  bower()
-  .pipe();
 });
 
 gulp.task('html', function () {
