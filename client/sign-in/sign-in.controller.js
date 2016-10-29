@@ -25,8 +25,6 @@
             console.log('Response:', response);
             $state.go('verify');
 
-
-
             // new page
             // please enter your drunk factor auth code
             // type it
@@ -35,9 +33,7 @@
             //   code string
             //   200 ok if drunk enough
             //   400 if not enough
-            //   
-            // 
-            // 
+            
           }, function (error) {
             wrong();
 
@@ -50,6 +46,9 @@
     }
 
     function wrong () {
+
+      sig.data.password = null;
+
       $mdDialog.show(
         $mdDialog.alert()
           .clickOutsideToClose(true)

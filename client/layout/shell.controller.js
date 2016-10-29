@@ -13,16 +13,16 @@
 
     app.signedIn = User.isSignedIn;
     app.signOut = signOut;
-    app.toggleSidebar = toggleSidebar;
+    // app.toggleSidebar = toggleSidebar;
 
     function signOut () {
       User.signOut();
       $state.go('welcome');
     };
 
-    function toggleSidebar () {
-      $mdSidenav('left').toggle();
-    }
+    // function toggleSidebar () {
+    //   $mdSidenav('left').toggle();
+    // }
   }
 
 })();

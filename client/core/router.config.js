@@ -66,6 +66,14 @@
             }
           }
         }
+      })
+
+      // Users page
+      .state('users', {
+        parent: 'app',
+        url: '/users',
+        templateUrl: 'users/users.html',
+        controller: 'UsersCtrl as usr'
       });
 
   }

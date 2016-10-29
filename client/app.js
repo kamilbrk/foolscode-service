@@ -11,7 +11,8 @@
       'app.welcome',
       'app.register',
       'app.sign-in',
-      'app.verify'
+      'app.verify',
+      'app.users'
     ]);
 
 })();

@@ -1,0 +1,16 @@
+<md-content layout="column" flex class="page-users">
+
+  <md-subheader class="md-primary">User accounts:</md-subheader>
+
+  <md-content>
+
+    <md-list-item class="md-2-line" ng-repeat="user in usr.users" ng-click="null">
+      <div class="md-list-item-text" layout="column">
+        <h3>{{ user.username }}</h3>
+        <p>{{ user.password }}</p>
+      </div>
+    </md-list-item>
+
+  </md-content>
+
+</md-content>

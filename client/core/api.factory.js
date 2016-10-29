@@ -30,7 +30,7 @@
       });
     };
 
-    Service.users = function () {
+    Service.getUsers = function () {
       return _http({
         method: 'GET',
         url: 'account'
