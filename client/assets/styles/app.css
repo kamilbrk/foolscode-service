@@ -16,3 +16,8 @@ html, body {
   font-weight: inherit;
   margin: inherit;
 }
+
+.page-welcome h2 {
+  margin: auto;
+}
+
