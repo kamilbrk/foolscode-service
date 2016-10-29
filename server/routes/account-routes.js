@@ -3,51 +3,45 @@ var users = require('../main/user-repository');
 
 var router = express.Router();
 
-router.get('/register', function(req, res) {
-  var num = +req.query.num;
+// Get all users (just a utility for development, nothing to see here folks)
+router.get('/', function(req, res) {
 
-  var binary = num.toString(2);
-
-  while (binary.length < 32) {
-    binary = '0' + binary;
-  }
-
-  var bal = binary.substr(0, 10);
-  var time = binary.substr(10, 22);
-
-  res.send({
-    bal: {
-      bin: bal,
-      dec: parseInt(bal, 2)
-    },
-    time: {
-      bin: time,
-      dec: parseInt(time, 2)
-    }
-  });
 });
-router.get('/register', function(req, res) {
-  var num = +req.query.num;
 
-  var binary = num.toString(2);
+// Register a new account
+router.post('/register', function(req, res) {
+  // Extract stuff from query params
+  var username = req.query.username;
+  var password = req.query.password;
+  var key = req.query.key;
 
-  while (binary.length < 32) {
-    binary = '0' + binary;
+  // Create the user
+  users.register(username, password, key);
+
+  // Send back 200 because why not
+  res.status(200).send();
+});
+
+// Login to an account
+router.post('/login', function(req, res) {
+  // Extract stuff from query params
+  var username = req.query.username;
+  var password = req.query.password;
+
+  // Retrieve user
+  var user = users.getById(username);
+
+  if (!user) {
+    res.status(400).send();
   }
 
-  var bal = binary.substr(0, 10);
-  var time = binary.substr(10, 22);
-
-  res.send({
-    bal: {
-      bin: bal,
-      dec: parseInt(bal, 2)
-    },
-    time: {
-      bin: time,
-      dec: parseInt(time, 2)
-    }
-  });
+  // Check the password
+  if (user.authenticate(password)) {
+    // Worlds worst authentication
+    res.status(200).send();
+  } else {
+    res.status(400).send();
+  }
 });
 
 module.exports = exports = router;
