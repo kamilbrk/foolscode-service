@@ -7,12 +7,11 @@
   <div class="md-padding">
 
     <div ng-if="!app.signedIn()">
-      <h2>Welcome, please sign in or register</h2>
+      <h2>Are you drunk enough?</h2>
     </div>
 
     <div ng-if="app.signedIn()">
-      <h2>You can do stuff!</h2>
-      <a ui-sref="verify">Verify stuff here</a>
+      <md-button ui-sref="verify" class="md-raised md-primary">Am I drunk enough?</md-button>
     </div>
 
   </div>
