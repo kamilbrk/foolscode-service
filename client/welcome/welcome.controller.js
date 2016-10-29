@@ -11,9 +11,6 @@
 
     var wel = this;
 
-
-    console.log('WelcomeCtrl here');
-
   }
 
 })();

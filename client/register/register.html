@@ -9,12 +9,12 @@
 
       <md-input-container class="md-block">
         <label>Name</label>
-        <input name="name" ng-model="reg.user.name" type="text" required>
+        <input name="name" ng-model="reg.data.name" type="text" required>
       </md-input-container>
 
       <md-input-container class="md-block">
         <label>Email</label>
-        <input name="email" ng-model="reg.user.email" type="email" required>
+        <input name="email" ng-model="reg.data.email" type="email" required>
       </md-input-container>
 
       <md-button type="submit" ng-click="reg.send()" class="md-raised md-primary">Submit</md-button>
@@ -26,6 +26,8 @@
   <div flex class="md-padding">
 
     <div id="qrcode"></div>
+
+    <pre ng-bind="::reg.data.key"></pre>
 
   </div>
 

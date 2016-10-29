@@ -6,7 +6,6 @@
     .run(runRouter)
     .config(configRouter);
 
-  console.log('router.config.js here');
 
 
   function runRouter ($rootScope, $state, $stateParams) {
@@ -16,8 +15,7 @@
 
 
   function configRouter ($urlRouterProvider, $stateProvider) {
-    console.log('config with states here');
-
+   
     $urlRouterProvider.otherwise('/welcome');
 
     $stateProvider
