@@ -1,4 +1,4 @@
-var User = require('user');
+var User = require('./user');
 
 module.exports = exports = new UserRepository();
 

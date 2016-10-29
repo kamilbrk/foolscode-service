@@ -1,6 +1,6 @@
 var express = require('express');
-var DrunkCalculator = require('drunk-calculator');
-var users = require('user-repository');
+var DrunkCalculator = require('./drunk-calculator');
+var users = require('./user-repository');
 var app = express();
 var routers = {};
 
