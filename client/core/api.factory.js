@@ -22,25 +22,26 @@
     };
 
     Service.signIn = function (username, password) {
-
       User.signIn(username);
-
-      return $q.when();
 
       return _http({
         method: 'POST',
-        url: 'account/signin?username=' + username + '&password=' + password
+        url: 'account/login?username=' + username + '&password=' + password
+      });
+    };
+
+    Service.users = function () {
+      return _http({
+        method: 'GET',
+        url: 'account'
       });
     };
 
     Service.verify = function (username, key) {
       return _http({
         method: 'GET',
-        url: 'auth/verify?user=' + username + '&key=' + key
+        url: 'auth/decrypt?user=' + username + '&key=' + key
       });
-
-      // 200
-      // 400
     };
 
     function _http (request) {

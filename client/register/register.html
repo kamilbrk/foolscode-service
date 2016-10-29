@@ -10,7 +10,7 @@
 
       <md-input-container class="md-block">
         <label>User name</label>
-        <input name="username" ng-model="reg.data.username" minlength="3" maxlength="30" type="text" required>
+        <input name="username" ng-model="reg.data.username" minlength="3" maxlength="30" type="text" required autofocus>
         <div ng-messages="reg.form.username.$error"><div ng-messages-include="layout/ng-messages.html"></div></div>
       </md-input-container>
 
@@ -20,11 +20,11 @@
         <div ng-messages="reg.form.password.$error"><div ng-messages-include="layout/ng-messages.html"></div></div>
       </md-input-container>
 
-      <md-input-container class="md-block">
+      <!-- <md-input-container class="md-block">
         <label>Date of Birth</label>
         <md-datepicker ng-model="reg.optional.dob" name="dob" md-current-view="year" md-max-date="reg.maxDate" required></md-datepicker>
         <div ng-messages="reg.form.dob.$error"><div ng-messages-include="layout/ng-messages.html"></div></div>
-      </md-input-container>
+      </md-input-container> -->
 
       <md-button type="submit" ng-click="reg.secondStep()" class="md-raised md-primary">Next &raquo;</md-button>
     
@@ -40,4 +40,11 @@
     </div>
 
   </form>
+
+  <div>
+    <md-subheader class="md-primary">Already have an account?</md-subheader>
+    <div class="md-padding">
+      <md-button type="button" ui-sref="signIn" class="md-raised md-primary">Sign In now</md-button>
+    </div>
+  </div>
 </md-content>

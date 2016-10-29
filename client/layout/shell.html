@@ -5,11 +5,12 @@
       <md-icon md-svg-icon="menu"></md-icon>
     </md-button>
     
-    <h1><a href="/">2Sober2Auth</a></h1>
+    <h1><a href="/">2Sober</a><a ui-sref="users">2</a><a href="/">Auth</a></h1>
 
     <span flex></span>
 
-    <a ng-if="!app.signedIn()" ui-sref="signIn">Sign In</a>
+    <a ng-if="!app.signedIn() && $state.current.name !== 'signIn'" ui-sref="signIn">Sign In</a>
+    <a ng-if="!app.signedIn() && $state.current.name === 'signIn'" ui-sref="register">Register</a>
     <a ng-if="app.signedIn()" ng-click="app.signOut()">Sign Out</a>
 
   </div>

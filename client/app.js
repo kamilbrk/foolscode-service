@@ -1,8 +1,8 @@
 (function () {
   'use strict';
 
-  console.info('Raging Alcoholic Permission Entry System v0.1');
-  console.log('')
+  console.info('Raging Alcoholic Permission Entry System');
+  console.log('');
 
   angular
     .module('app', [

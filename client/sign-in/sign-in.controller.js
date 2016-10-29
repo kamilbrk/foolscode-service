@@ -7,7 +7,7 @@
 
 
 
-  function SignInCtrl ($state, API, User, QRCode) {
+  function SignInCtrl ($state, $mdDialog, API, User, QRCode) {
     var sig = this;
 
     sig.data = {};
@@ -39,13 +39,26 @@
             // 
             // 
           }, function (error) {
+            wrong();
+
             console.log('Error!', error);
           });
       }
       else {
         console.log('Invalid');
       }
-    };
+    }
+
+    function wrong () {
+      $mdDialog.show(
+        $mdDialog.alert()
+          .clickOutsideToClose(true)
+          .title('Error')
+          .textContent('Username or password is incorrect.')
+          .ariaLabel('Wrong username or password alert')
+          .ok('I\'ll try again')
+      );
+    }
   }
 
 })();

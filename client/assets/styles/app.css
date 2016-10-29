@@ -6,6 +6,10 @@ html, body {
   padding: 0;
 }
 
+[ng-click], [ui-sref] {
+  cursor: pointer;
+}
+
 #main {
   min-height: 100%;
 }
