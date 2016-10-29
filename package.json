@@ -8,8 +8,6 @@
   },
   "author": "",
   "dependencies": {
-    "express": "^4.14.0",
-    "skip32": "^1.2.1",
     "angular": "^1.5.8",
     "angular-animate": "^1.5.8",
     "angular-aria": "^1.5.8",
@@ -18,7 +16,9 @@
     "angular-sanitize": "^1.5.8",
     "angular-ui-router": "^0.3.1",
     "express": "^4.14.0",
-    "qrcodejs2": "0.0.2"
+    "memory-cache": "^0.1.6",
+    "qrcodejs2": "0.0.2",
+    "skip32": "^1.2.1"
   },
   "devDependencies": {
     "gulp": "*",

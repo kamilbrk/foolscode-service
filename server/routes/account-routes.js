@@ -5,7 +5,7 @@ var router = express.Router();
 
 // Get all users (just a utility for development, nothing to see here folks)
 router.get('/', function(req, res) {
-
+  res.send(users.getAll());
 });
 
 // Register a new account
