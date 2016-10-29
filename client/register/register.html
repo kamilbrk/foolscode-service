@@ -1,0 +1,34 @@
+
+<div layout="row" layout-xs="column">
+
+  <div flex class="md-padding">
+
+    <h3>Please fill the details here:</h3>
+
+    <form name="reg.form" novalidate>
+
+      <md-input-container class="md-block">
+        <label>Name</label>
+        <input name="name" ng-model="reg.user.name" type="text" required>
+      </md-input-container>
+
+      <md-input-container class="md-block">
+        <label>Email</label>
+        <input name="email" ng-model="reg.user.email" type="email" required>
+      </md-input-container>
+
+      <md-button type="submit" ng-click="reg.send()" class="md-raised md-primary">Submit</md-button>
+
+    </form>
+
+  </div>
+
+  <div flex class="md-padding">
+
+    <div id="qrcode"></div>
+
+  </div>
+
+</div>
+
+

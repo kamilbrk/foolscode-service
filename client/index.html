@@ -1,1 +1,44 @@
-Hello
+<!DOCTYPE html>
+<html ng-app="app" ng-controller="ShellCtrl as app">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1">
+
+  <title>app</title>
+
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,700">
+  <link rel="stylesheet" href="vendor/angular-material/angular-material.css">
+  <link rel="stylesheet" href="assets/styles/app.css">
+</head>
+<body>
+
+  <div id="main" ui-view layout="column">Loading&hellip;</div>
+
+  <script src="vendor/angular/angular.js"></script>
+  <script src="vendor/angular-animate/angular-animate.js"></script>
+  <script src="vendor/angular-aria/angular-aria.js"></script>
+  <script src="vendor/angular-messages/angular-messages.js"></script>
+  <script src="vendor/angular-sanitize/angular-sanitize.js"></script>
+  <script src="vendor/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="vendor/angular-material/angular-material.js"></script>
+  <script src="vendor/qrcodejs2/qrcode.js"></script>
+
+
+  <script src="app.js"></script>
+
+  <script src="core/core.module.js"></script>
+  <script src="core/constants.js"></script>
+  <script src="core/router.config.js"></script>
+
+  <script src="layout/layout.module.js"></script>
+  <script src="layout/layout.config.js"></script>
+  <script src="layout/shell.controller.js"></script>
+
+  <script src="welcome/welcome.module.js"></script>
+  <script src="welcome/welcome.controller.js"></script>
+
+  <script src="register/register.module.js"></script>
+  <script src="register/register.controller.js"></script>
+
+</body>
+</html>
