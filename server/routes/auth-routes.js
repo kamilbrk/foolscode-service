@@ -5,19 +5,6 @@ var users = require('../main/user-repository');
 
 var router = express.Router();
 
-router.get('/encrypt', function(req, res) {
-  var key = 'qwertyuiop';
-  var num = +req.query.input;
-
-  var crypt = new Skip32(key);
-  var result = crypt.encrypt(num);
-
-  res.send({
-    result: result
-  });
-});
-
-
 router.get('/decrypt', function(req, res) {
   var calculator = new DrunkCalculator();
   var username = req.query.user;
