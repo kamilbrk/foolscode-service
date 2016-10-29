@@ -18,5 +18,20 @@
   "homepage": "https://github.com/kamilbrk/foolscode-service#readme",
   "dependencies": {
     "express": "^4.14.0"
+  },
+  "devDependencies": {
+    "gulp": "*",
+    "gulp-bower": "*",
+    "morgan": "*",
+    "body-parser": "*",
+    "tiny-lr": "*",
+    "gulp-notify": "*",
+    "gulp-livereload": "*",
+    "gulp-nodemon": "*",
+    "gulp-plumber": "*",
+    "gulp-task-listing": "*",
+    "gulp-concat": "*",
+    "gulp-uglify": "*",
+    "gulp-stylus": "*"
   }
 }
