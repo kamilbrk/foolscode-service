@@ -17,7 +17,7 @@
 
     function signOut () {
       User.signOut();
-      $state.go('sign-in');
+      $state.go('welcome');
     };
 
     function toggleSidebar () {

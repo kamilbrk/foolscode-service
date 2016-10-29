@@ -1,11 +1,12 @@
 <md-content class="page-welcome md-padding">
   
-  <div ng-if="!app.signedIn">
+  <div ng-if="!app.signedIn()">
     <h2>Welcome, please sign in or register</h2>
   </div>
 
-  <div ng-if="app.signedIn">
+  <div ng-if="app.signedIn()">
     <h2>You can do stuff!</h2>
+    <a ui-sref="verify">Verify stuff here</a>
   </div>
 
 </md-content>

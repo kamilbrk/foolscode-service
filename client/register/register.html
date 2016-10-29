@@ -1,48 +1,41 @@
 <md-content layout="column" flex class="page-register">
-  <form name="reg.form" novalidate>
+  <form name="reg.form" novalidate autocomplete="off">
 
-    <div ng-show="reg.step === 1">
+    <md-subheader class="md-primary">
+      <span ng-show="reg.step === 1">First, enter your details:</span>
+      <span ng-show="reg.step === 2">Great, now scan the QR code:</span>
+    </md-subheader>
 
-      <md-subheader class="md-primary">First, enter your details:</md-subheader>
+    <div ng-show="reg.step === 1" class="md-padding">
 
-      <div class="md-padding">
+      <md-input-container class="md-block">
+        <label>User name</label>
+        <input name="username" ng-model="reg.data.username" minlength="3" maxlength="30" type="text" required>
+        <div ng-messages="reg.form.username.$error"><div ng-messages-include="layout/ng-messages.html"></div></div>
+      </md-input-container>
 
-        <md-input-container class="md-block">
-          <label>User name</label>
-          <input name="username" ng-model="reg.data.username" minlength="3" maxlength="30" type="text" required>
-          <div ng-messages="reg.form.username.$error"><div ng-messages-include="layout/ng-messages.html"></div></div>
-        </md-input-container>
+      <md-input-container class="md-block">
+        <label>Password</label>
+        <input name="password" ng-model="reg.data.password" type="password" required>
+        <div ng-messages="reg.form.password.$error"><div ng-messages-include="layout/ng-messages.html"></div></div>
+      </md-input-container>
 
-        <md-input-container class="md-block">
-          <label>Password</label>
-          <input name="password" ng-model="reg.data.password" type="password" required>
-          <div ng-messages="reg.form.password.$error"><div ng-messages-include="layout/ng-messages.html"></div></div>
-        </md-input-container>
+      <md-input-container class="md-block">
+        <label>Date of Birth</label>
+        <md-datepicker ng-model="reg.optional.dob" name="dob" md-current-view="year" md-max-date="reg.maxDate" required></md-datepicker>
+        <div ng-messages="reg.form.dob.$error"><div ng-messages-include="layout/ng-messages.html"></div></div>
+      </md-input-container>
 
-        <md-input-container class="md-block">
-          <label>Date of Birth</label>
-          <md-datepicker ng-model="reg.optional.dob" name="dob" md-current-view="year" md-max-date="reg.maxDate" required></md-datepicker>
-          <div ng-messages="reg.form.dob.$error"><div ng-messages-include="layout/ng-messages.html"></div></div>
-        </md-input-container>
-
-        <md-button type="button" ng-click="reg.secondStep()" class="md-raised md-primary">Next &raquo;</md-button>
-
-      </div>
+      <md-button type="submit" ng-click="reg.secondStep()" class="md-raised md-primary">Next &raquo;</md-button>
     
     </div>
-    <div ng-show="reg.step === 2">
+    <div ng-show="reg.step === 2" class="md-padding">
 
-      <md-subheader class="md-primary">Great, now scan the QR code:</md-subheader>
+      <div id="qrcode"></div>
+      <pre ng-bind="reg.data.key"></pre>
 
-      <div class="md-padding">
-
-        <div id="qrcode"></div>
-        <pre ng-bind="reg.data.key"></pre>
-
-        <md-button type="submit" ng-click="reg.firstStep()" class="md-raised md-primary">&laquo; Back</md-button>
-        <md-button type="submit" ng-click="reg.send()" class="md-raised md-primary">Send</md-button>
-
-      </div>
+      <md-button type="submit" ng-click="reg.firstStep()" class="md-raised md-primary">&laquo; Back</md-button>
+      <md-button type="submit" ng-click="reg.send()" class="md-raised md-primary">Send</md-button>
 
     </div>
 

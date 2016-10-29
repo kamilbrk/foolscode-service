@@ -1,5 +1,5 @@
 
-# Created by https://www.gitignore.io/api/sublimetext,node,visualstudio,windows,macos
+# Created by https://www.gitignore.io/api/sublimetext,visualstudiocode,node,visualstudio,windows,macos
 
 ### SublimeText ###
 # cache files for sublime text
@@ -30,6 +30,12 @@ bh_unicode_properties.cache
 # https://packagecontrol.io/packages/sublime-github
 GitHub.sublime-settings
 
+
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
 
 ### Node ###
 # Logs
