@@ -28,26 +28,25 @@ DrunkCalculator.prototype.calculate = function(user, encryptedValue, callback) {
     }
 
     // Parse the two values
-    var alcLvl = parseInt(allBits.substr(0, 10), 2);
+    var alcoholLevel = parseInt(allBits.substr(0, 10), 2);
     var seconds = parseInt(allBits.substr(10, 22), 2);
 
     // The limit right now is < 0.6
-    var isDrunkEnough = alcLvl < 600;
+    var isDrunkEnough = alcoholLevel < 600;
 
     // The key also has to have been generated within the last 5 mins
-    var timeCreated = userKey.time + seconds;
+    var timeCreated = user.created + seconds;
     var currentTime = new Date().getTime();
     var isValid = currentTime - timeCreated <= FiveMins;
 
     // Return the result
     callback({
       isDrunkEnough: isDrunkEnough,
-      isValid: isValid
+      isValid: isValid,
+      alcoholLevel: alcoholLevel
     });
   });
 };
-
-
 
 // Decrypt the provided value into a 32 bit int
 DrunkCalculator.prototype.decrypt = function(encryptedValue, key, callback) {

@@ -27,10 +27,14 @@ router.get('/decrypt', function(req, res) {
 
   calculator.calculate(user, key, function(result){
     if (result.isDrunkEnough && result.isValid)  { 
-      res.status(200).send();
+      res.status(200).send({
+        alcoholLevel: result.alcoholLevel
+      });
     }
     else{
-      res.status(401).send();
+      res.status(401).send({
+        alcoholLevel: result.alcoholLevel
+      });
     }
   })
 });
