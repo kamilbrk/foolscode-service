@@ -4,6 +4,4 @@
   angular
     .module('app.welcome', []);
 
-  console.log('welcome module');
-
 })();

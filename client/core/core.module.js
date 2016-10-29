@@ -11,6 +11,4 @@
       'ngMaterial'
     ]);
 
-  console.log('core.module.js here');
-
 })();
