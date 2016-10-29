@@ -1,36 +1,42 @@
+<md-content layout="column" flex class="page-register">
+  <form name="reg.form" novalidate>
 
-<div layout="row" layout-xs="column">
+    <div ng-show="reg.step === 1">
 
-  <div flex class="md-padding">
+      <md-subheader class="md-primary">First, enter your details:</md-subheader>
 
-    <h3>Please fill the details here:</h3>
+      <div class="md-padding">
 
-    <form name="reg.form" novalidate>
+        <md-input-container class="md-block">
+          <label>Name</label>
+          <input name="name" ng-model="reg.data.name" type="text" required>
+        </md-input-container>
 
-      <md-input-container class="md-block">
-        <label>Name</label>
-        <input name="name" ng-model="reg.data.name" type="text" required>
-      </md-input-container>
+        <md-input-container class="md-block">
+          <label>Email</label>
+          <input name="email" ng-model="reg.data.email" type="email" required>
+        </md-input-container>
 
-      <md-input-container class="md-block">
-        <label>Email</label>
-        <input name="email" ng-model="reg.data.email" type="email" required>
-      </md-input-container>
+        <md-button type="button" ng-click="reg.secondStep()" class="md-raised md-primary">Next &raquo;</md-button>
 
-      <md-button type="submit" ng-click="reg.send()" class="md-raised md-primary">Submit</md-button>
+      </div>
+    
+    </div>
+    <div ng-show="reg.step === 2">
 
-    </form>
+      <md-subheader class="md-primary">Great, now scan the QR code:</md-subheader>
 
-  </div>
+      <div class="md-padding">
 
-  <div flex class="md-padding">
+        <div id="qrcode"></div>
+        <pre ng-bind="reg.data.key"></pre>
 
-    <div id="qrcode"></div>
+        <md-button type="submit" ng-click="reg.firstStep()" class="md-raised md-primary">&laquo; Back</md-button>
+        <md-button type="submit" ng-click="reg.send()" class="md-raised md-primary">Send</md-button>
 
-    <pre ng-bind="::reg.data.key"></pre>
+      </div>
 
-  </div>
+    </div>
 
-</div>
-
-
+  </form>
+</md-content>

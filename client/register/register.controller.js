@@ -17,21 +17,43 @@
     };
 
     var _qr;
-    var _key;
+
     reg.send = send;
+    reg.firstStep = firstStep;
+    reg.secondStep = secondStep;
+    reg.step === 1;
 
-    _setupQr();
+    firstStep();
 
+
+    function firstStep () {
+      reg.step = 1;
+    }
+
+    function secondStep () {
+      if (reg.form.$valid) {
+        reg.step = 2;
+        _setupQr();
+      }
+    }
 
 
     function send () {
       if (reg.form.$valid) {
+
+        if (!reg.data.key) {
+          return;
+        }
+
         console.log('Sending over to /api/register:', reg.data);
 
-        $http.post('/api/register', reg.data)
+        return $http
+          .post('/account/register', reg.data)
           .then(function (response) {
             console.log('Response:', response);
-          })
+          }, function (error) {
+            console.log('Error!', error);
+          });
       }
       else {
         console.log('Invalid');
@@ -41,11 +63,13 @@
     function _setupQr () {
 
       reg.data.key = Math.random().toString(36).substr(2, 10);
-
-      _qr = new QRCode(document.querySelector('#qrcode'), {
-        text: reg.data.key
-      });
-
+      
+      if (!_qr) {
+        _qr = new QRCode(document.querySelector('#qrcode'), reg.data.key);
+      } else {
+        _qr.clear();
+        _qr.makeCode(reg.data.key);
+      }
     }
 
   }
