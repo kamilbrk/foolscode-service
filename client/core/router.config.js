@@ -40,6 +40,32 @@
         url: '/register',
         templateUrl: 'register/register.html',
         controller: 'RegisterCtrl as reg'
+      })
+
+      // Sign In page
+      .state('signIn', {
+        parent: 'app',
+        url: '/sign-in',
+        templateUrl: 'sign-in/sign-in.html',
+        controller: 'SignInCtrl as sig'
+      })
+
+      // Verify page
+      .state('verify', {
+        parent: 'app',
+        url: '/verify',
+        templateUrl: 'verify/verify.html',
+        controller: 'VerifyCtrl as ver',
+        resolve: {
+          signedIn: function ($q, User) {
+            if (User.isSignedIn()) {
+              return $q.when();
+            }
+            else {
+              return $q.reject('NOWAI');
+            }
+          }
+        }
       });
 
   }

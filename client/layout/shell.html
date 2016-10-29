@@ -1,20 +1,27 @@
 <md-toolbar layout="row">
   <div class="md-toolbar-tools">
-    <md-button ng-click="toggleSidenav('left')" hide-gt-sm class="md-icon-button">
-      <md-icon aria-label="Menu" md-svg-icon="menu"></md-icon>
+    <md-button ng-click="app.toggleSidebar()" aria-label="Toggle menu" hide-gt-sm class="md-icon-button">
+      <md-icon md-svg-icon="menu"></md-icon>
     </md-button>
-    <h1>2Sober2Auth</h1>
+    <h1><a href="/">2Sober2Auth</a></h1>
     <span flex></span>
-    <p hide-xs>HackManchester2016</p>
-    <p hide-gt-xs>HM2016</p>
+    <a href="http://www.hackmanchester.com" target="_blank"><span hide-xs>HackManchester</span><span hide-gt-xs>HM</span>2016</a>
   </div>
 </md-toolbar>
 
 <div layout="row" flex>
   <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
 
-    <md-list flex ng-if="!app.signedIn">
-      <md-list-item ng-click="app.signIn()">
+    <md-toolbar layout="row" hide-gt-sm>
+      <div class="md-toolbar-tools">
+        <md-button ng-click="app.toggleSidebar()" aria-label="Toggle menu" hide-gt-sm class="md-icon-button">
+          <md-icon md-svg-icon="menu"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <md-list flex ng-if="!app.signedIn()">
+      <md-list-item ui-sref="signIn">
         <span>Sign In</soan>
       </md-list-item>
       <md-list-item ui-sref="register">
@@ -22,7 +29,10 @@
       </md-list-item>
     </md-list>
 
-    <md-list flex ng-if="app.signedIn">
+    <md-list flex ng-if="app.signedIn()">
+      <md-list-item ui-sref="verify">
+        <span>Verify</soan>
+      </md-list-item>
       <md-list-item ng-click="app.signOut()">
         <span>Sign Out</soan>
       </md-list-item>

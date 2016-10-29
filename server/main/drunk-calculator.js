@@ -20,8 +20,6 @@ DrunkCalculator.prototype.calculate = function(user, encryptedValue, callback) {
   // Decrypt the bits
   this.decrypt(encryptedValue, userKey, function(decrypted){
 
-    // Take the first 10 bits as the drunk value (1-1,000)
-    // and the last 22 bits as the time passed since the key was generated
     var allBits = decrypted.toString(2);
 
     // Make sure the value is 32 bits (smaller numbers could return less)
@@ -53,6 +51,13 @@ DrunkCalculator.prototype.calculate = function(user, encryptedValue, callback) {
 
 // Decrypt the provided value into a 32 bit int
 DrunkCalculator.prototype.decrypt = function(encryptedValue, key, callback) {
-  //  do things
-  callback("stuff");
+
+  var spawn = require('child_process').spawn;
+
+  var skipjackProc = spawn(__dirname + '\\skip32.exe', [key, encryptedValue, '0']);
+
+  skipjackProc.stdout.on('data', function (data) {
+    console.log('dec: ' + data);
+    callback(+data);
+  });  
 };

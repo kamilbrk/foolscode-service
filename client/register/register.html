@@ -8,13 +8,21 @@
       <div class="md-padding">
 
         <md-input-container class="md-block">
-          <label>Name</label>
-          <input name="name" ng-model="reg.data.name" type="text" required>
+          <label>User name</label>
+          <input name="username" ng-model="reg.data.username" minlength="3" maxlength="30" type="text" required>
+          <div ng-messages="reg.form.username.$error"><div ng-messages-include="layout/ng-messages.html"></div></div>
         </md-input-container>
 
         <md-input-container class="md-block">
-          <label>Email</label>
-          <input name="email" ng-model="reg.data.email" type="email" required>
+          <label>Password</label>
+          <input name="password" ng-model="reg.data.password" type="password" required>
+          <div ng-messages="reg.form.password.$error"><div ng-messages-include="layout/ng-messages.html"></div></div>
+        </md-input-container>
+
+        <md-input-container class="md-block">
+          <label>Date of Birth</label>
+          <md-datepicker ng-model="reg.optional.dob" name="dob" md-current-view="year" md-max-date="reg.maxDate" required></md-datepicker>
+          <div ng-messages="reg.form.dob.$error"><div ng-messages-include="layout/ng-messages.html"></div></div>
         </md-input-container>
 
         <md-button type="button" ng-click="reg.secondStep()" class="md-raised md-primary">Next &raquo;</md-button>

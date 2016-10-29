@@ -7,21 +7,16 @@
 
 
 
-  function RegisterCtrl ($http, QRCode) {
+  function RegisterCtrl (API, QRCode) {
     var reg = this;
-
-    reg.data = {
-      // username: '',
-      // password: ''
-      // key: ''
-    };
-
     var _qr;
 
+    reg.data = {};
+    reg.optional = {};
     reg.send = send;
     reg.firstStep = firstStep;
     reg.secondStep = secondStep;
-    reg.step === 1;
+    reg.maxDate = new Date();
 
     firstStep();
 
@@ -47,8 +42,7 @@
 
         console.log('Sending over to /api/register:', reg.data);
 
-        return $http
-          .post('/account/register', reg.data)
+        return API.register(reg.data.username, reg.data.password, reg.data.key)
           .then(function (response) {
             console.log('Response:', response);
           }, function (error) {
@@ -61,9 +55,9 @@
     };
 
     function _setupQr () {
+      // reg.data.key = Math.random().toString(36).substr(2, 10);
+      reg.data.key = 'qwertyuiop';
 
-      reg.data.key = Math.random().toString(36).substr(2, 10);
-      
       if (!_qr) {
         _qr = new QRCode(document.querySelector('#qrcode'), reg.data.key);
       } else {
@@ -75,5 +69,3 @@
   }
 
 })();
-
-// 07 860 033815

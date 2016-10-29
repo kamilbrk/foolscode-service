@@ -9,7 +9,9 @@
       'app.core',
       'app.layout',
       'app.welcome',
-      'app.register'
+      'app.register',
+      'app.sign-in',
+      'app.verify'
     ]);
 
 })();

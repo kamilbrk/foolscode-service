@@ -8,19 +8,21 @@
 
 
   /* @ngInject */
-  function ShellCtrl ($rootScope, $scope) {
+  function ShellCtrl ($state, $mdSidenav, User) {
     var app = this;
 
-    app.signedIn = false;
+    app.signedIn = User.isSignedIn;
+    app.signOut = signOut;
+    app.toggleSidebar = toggleSidebar;
 
-    app.signIn = function () {
-      app.signedIn = true;
+    function signOut () {
+      User.signOut();
+      $state.go('sign-in');
     };
 
-    app.signOut = function () {
-      app.signedIn = false;
-    };
-
+    function toggleSidebar () {
+      $mdSidenav('left').toggle();
+    }
   }
 
 })();

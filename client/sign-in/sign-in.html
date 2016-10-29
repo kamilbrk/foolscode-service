@@ -1,0 +1,23 @@
+<md-content layout="column" flex class="page-sign-in">
+  <form name="sig.form" novalidate>
+
+    <md-subheader class="md-primary">Sign in here:</md-subheader>
+
+    <div class="md-padding">
+
+      <md-input-container class="md-block">
+        <label>User name</label>
+        <input name="username" ng-model="sig.data.username" type="text" required>
+      </md-input-container>
+
+      <md-input-container class="md-block">
+        <label>Password</label>
+        <input name="password" ng-model="sig.data.password" type="password" required>
+      </md-input-container>
+  
+      <md-button type="submit" ng-click="sig.send()" class="md-raised md-primary">Sign In</md-button>
+
+    </div>
+
+  </form>
+</md-content>
