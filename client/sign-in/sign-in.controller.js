@@ -17,7 +17,7 @@
 
     function send () {
       if (sig.form.$valid) {
-
+        
         console.log('Signing in:', sig.data);
 
         return API.signIn(sig.data.username, sig.data.password)
@@ -35,7 +35,7 @@
             //   400 if not enough
             
           }, function (error) {
-            wrong();
+            wrongPassword();
 
             console.log('Error!', error);
           });
@@ -45,7 +45,7 @@
       }
     }
 
-    function wrong () {
+    function wrongPassword () {
 
       sig.data.password = null;
 

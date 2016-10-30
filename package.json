@@ -15,6 +15,7 @@
     "angular-messages": "^1.5.8",
     "angular-sanitize": "^1.5.8",
     "angular-ui-router": "^0.3.1",
+    "chartist": "^0.10.1",
     "express": "^4.14.0",
     "memory-cache": "^0.1.6",
     "qrcodejs2": "0.0.2",

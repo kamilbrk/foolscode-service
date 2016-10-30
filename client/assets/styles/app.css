@@ -39,3 +39,8 @@ html, body {
   max-width: 100%;
 }
 
+
+.page-investments .gauge-inside { height: 200px; margin-bottom: -80px; }
+.page-investments .chart-gauge { height: 200px; }
+.page-investments .chart-gauge .ct-label { dominant-baseline: inherit; font-size: 2em; }
+.page-investments .chart-sparkline { margin-bottom: -37.5px; }

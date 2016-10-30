@@ -13,16 +13,21 @@
 
     app.signedIn = User.isSignedIn;
     app.signOut = signOut;
+    app.whoey = whoey;
     // app.toggleSidebar = toggleSidebar;
 
     function signOut () {
       User.signOut();
       $state.go('welcome');
-    };
+    }
 
     // function toggleSidebar () {
     //   $mdSidenav('left').toggle();
     // }
+    
+    function whoey () {
+      
+    }
   }
 
 })();

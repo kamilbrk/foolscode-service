@@ -58,12 +58,20 @@
         controller: 'VerifyCtrl as ver',
         resolve: {
           signedIn: function ($q, User) {
-            if (User.isSignedIn()) {
-              return $q.when();
-            }
-            else {
-              return $q.reject('NOWAI');
-            }
+            return User.isSignedIn() ? $q.when() : $q.reject();
+          }
+        }
+      })
+
+      // Investment page
+      .state('investments', {
+        parent: 'app',
+        url: '/investments/:level',
+        templateUrl: 'investments/investments.html',
+        controller: 'InvestmentsCtrl as inv',
+        resolve: {
+          signedIn: function ($q, User) {
+            return User.isSignedIn() ? $q.when() : $q.reject();
           }
         }
       })

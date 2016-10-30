@@ -12,7 +12,8 @@
       'app.register',
       'app.sign-in',
       'app.verify',
-      'app.users'
+      'app.users',
+      'app.investments'
     ]);
 
 })();

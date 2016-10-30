@@ -7,7 +7,7 @@
 
 
 
-  function VerifyCtrl ($state, $mdDialog, API, User, QRCode) {
+  function VerifyCtrl ($state, $q, $mdDialog, API, User, QRCode) {
     var ver = this;
 
     if (!User.isSignedIn()) {
@@ -30,9 +30,12 @@
         return API.verify(ver.data.username, ver.data.key)
           .then(function (response) {
             console.log('Response:', response);
+
+
+            $state.go('investments', { level: response });
             
 
-            showAlert();
+            // showAlert();
 
 
             // new page
@@ -55,18 +58,18 @@
       }
     }
 
-    function showAlert (success) {
-      $mdDialog.show(
-        $mdDialog.alert()
-          .parent(angular.element(document.querySelector('#popupContainer')))
-          .clickOutsideToClose(true)
-          .title('This is an alert title')
-          .textContent('You can specify some description text in here.')
-          .ariaLabel('Alert Dialog Demo')
-          .ok('Got it!')
-          .targetEvent(ev)
-      );
-    }
+    // function showAlert (success) {
+    //   $mdDialog.show(
+    //     $mdDialog.alert()
+    //       .parent(angular.element(document.querySelector('#popupContainer')))
+    //       .clickOutsideToClose(true)
+    //       .title('This is an alert title')
+    //       .textContent('You can specify some description text in here.')
+    //       .ariaLabel('Alert Dialog Demo')
+    //       .ok('Got it!')
+    //       .targetEvent(ev)
+    //   );
+    // }
   }
 
 })();
