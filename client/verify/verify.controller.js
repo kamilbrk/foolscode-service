@@ -33,7 +33,7 @@
 
 
             if (response && response.alcoholLevel) {
-              $state.go('investments', { level: response });
+              $state.go('investments', { level: response.alcoholLevel });
             }
             else {
               showAlert(); 

@@ -74,7 +74,7 @@
 
     Service.verify = function (username, key) {
 
-      // return $q.when(0.7);
+      // return $q.when({ alcoholLevel: 413 });
 
       return _http({
         method: 'GET',
