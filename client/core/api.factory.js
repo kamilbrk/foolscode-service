@@ -47,17 +47,17 @@
       ];
 
       var investments = [
-        { name: 'Yahoo!', subtitle: 'Falling down every day, right?', url: 'http://google.co.uk', required: 0 },
-        { name: 'Name 1', subtitle: 'Subtitle 1', url: 'http://google.co.uk', required: 0.1 },
-        { name: 'Name 2', subtitle: 'Subtitle 2', url: 'http://google.co.uk', required: 0.2 },
-        { name: 'Name 3', subtitle: 'Subtitle 3', url: 'http://google.co.uk', required: 0.3 },
-        { name: 'Name 4', subtitle: 'Subtitle 4', url: 'http://google.co.uk', required: 0.4 },
-        { name: 'Name 5', subtitle: 'Subtitle 5', url: 'http://google.co.uk', required: 0.5 },
-        { name: 'Name 6', subtitle: 'Subtitle 6', url: 'http://google.co.uk', required: 0.6 },
-        { name: 'Name 7', subtitle: 'Subtitle 7', url: 'http://google.co.uk', required: 0.7 },
-        { name: 'Name 8', subtitle: 'Subtitle 8', url: 'http://google.co.uk', required: 0.8 },
-        { name: 'Name 9', subtitle: 'Subtitle 9', url: 'http://google.co.uk', required: 0.9 },
-        { name: 'Name10', subtitle: 'Subtitle10', url: 'http://google.co.uk', required: 1 }
+        { name: 'Yahoo!', subtitle: 'Stock falling down every day, right?', url: 'about:blank', required: 0 },
+        { name: 'Company 1', subtitle: 'Solid chice 1', url: 'about:blank', required: 0.1 },
+        { name: 'Company 2', subtitle: 'Solid chice 2', url: 'about:blank', required: 0.2 },
+        { name: 'Company 3', subtitle: 'Solid chice 3', url: 'about:blank', required: 0.3 },
+        { name: 'Company 4', subtitle: 'Solid chice 4', url: 'about:blank', required: 0.4 },
+        { name: 'Company 5', subtitle: 'Solid chice 5', url: 'about:blank', required: 0.5 },
+        { name: 'Company 6', subtitle: 'Solid chice 6', url: 'about:blank', required: 0.6 },
+        { name: 'Company 7', subtitle: 'Solid chice 7', url: 'about:blank', required: 0.7 },
+        { name: 'Company 8', subtitle: 'Solid chice 8', url: 'about:blank', required: 0.8 },
+        { name: 'Company 9', subtitle: 'Solid chice 9', url: 'about:blank', required: 0.9 },
+        { name: 'Company 10', subtitle: 'Solid chice 10', url: 'about:blank', required: 1 }
       ];
 
       investments.forEach(function (investment) {

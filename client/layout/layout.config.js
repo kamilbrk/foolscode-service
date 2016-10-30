@@ -11,7 +11,8 @@
     
     $mdIconProvider
       .icon('menu', 'assets/images/menu.svg', 24)
-      .icon('logo', 'assets/images/logo.svg', 24);
+      .icon('logo', 'assets/images/logo.svg', 24)
+      .icon('ambulance', 'assets/images/ambulance.svg', 64);
     
     $mdThemingProvider.theme('default')
       .primaryPalette('indigo')

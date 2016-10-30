@@ -24,14 +24,15 @@
       _message = 'Awesome, good enough! Let\'s do something irresponsible:';
     }
     else if (inv.level <= 0.9) {
-      _message = 'Few drinks, eh? Solid offers below:';
+      _message = 'Few drinks, eh? Got some pretty solid offers for you below:';
     }
     else if (inv.level <= 1) {
-      _message = 'You are smashed! Please seek medical help immediately! Or...';
+      _message = 'You are smashed! Please seek medical help immediately! OR...';
+      inv.ambulance = true;
     }
 
     inv.message = _message;
-    
+
     API.getInvestments(inv.level)
       .then(function (investments) {
         inv.investments = investments;

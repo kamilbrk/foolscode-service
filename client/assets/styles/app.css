@@ -83,6 +83,19 @@ sparkline .ct-line { stroke-dasharray: 5px; -webkit-animation: dashoffset 1s lin
   opacity: 1;
 }
 
+.ambulance {
+  height: 64px;
+  width: 64px;
+  position: absolute;
+  top: 46px;
+  left: 50%;
+  margin-left: 112px;
+  z-index: 1;
+
+  animation: rollin 2s ease;
+  -webkit-animation: rollin 2s ease;
+}
+
 @-webkit-keyframes dashoffset { 
   0% { stroke-dashoffset: 0; }
   100% { stroke-dashoffset: -20px; }
@@ -92,3 +105,14 @@ sparkline .ct-line { stroke-dasharray: 5px; -webkit-animation: dashoffset 1s lin
   0% { stroke-dashoffset: 0; }
   100% { stroke-dashoffset: -20px; }
 }
+
+@-webkit-keyframes rollin { 
+  0% { left: -130%; }
+  100% { left: 50%; }
+}
+
+@keyframes rollin { 
+  0% { left: -10%; }
+  100% { left: 50%; }
+}
+
