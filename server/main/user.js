@@ -4,7 +4,8 @@ function User(username, password, key) {
   this.username = username;
   this.password = password;
   this.key = key;
-  this.created = new Date().getTime();
+  // Hardcode the creation date for now 
+  this.created = new Date(1477872000000);
 }
 
 User.prototype.authenticate = function(password) {

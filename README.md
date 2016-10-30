@@ -21,3 +21,29 @@ The user will then enter that string into the web interface and it will be verif
 - Last 22 bits parsed as the amount of seconds passed
 - Checks that (Datetime now) - (key creation time + amount of seconds passed) < 10 minutes
 - Checks user BAL against a specified table to determine if user is drunk enough
+
+
+# TEST - Drunk enough
+01011111110000000000000000000000 = 1606418432
+
+First ten bits = 0101111111 = 383, which is drunk enough
+
+1606418432 encrypted with key 'qwertyuiop' is 2888317427
+( skip32 qwertyuiop 1606418432 1)
+
+2888317427 in HEX is AC2839F3
+
+Passing AC2839F3 to /api/auth/decrypt returns 200 and 383 - drunk enough!
+
+
+# TEST - Too Sober
+11000001110000000000000000000000 = 3250585600
+
+First ten bits = 1100000111 = 775, which is TOO SOBER!
+
+3250585600 encrypted with key 'qwertyuiop' is 2601090635
+( skip32 qwertyuiop 3250585600 1)
+
+2601090635 in HEX is 9B097E4B
+
+Passing 9B097E4B to /api/auth/decrypt returns 401 and 775 - too sober!

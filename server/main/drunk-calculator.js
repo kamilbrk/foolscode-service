@@ -35,9 +35,9 @@ DrunkCalculator.prototype.calculate = function(user, encryptedValue, callback) {
     var isDrunkEnough = alcoholLevel < 600;
 
     // The key also has to have been generated within the last 5 mins
-    var timeCreated = user.created + seconds;
-    var currentTime = new Date().getTime();
-    var isValid = currentTime - timeCreated <= FiveMins;
+    var timeCreated = new Date(user.created.getTime() + seconds);
+    var currentTime = new Date();
+    var isValid = currentTime.getTime() - timeCreated.getTime() <= FiveMins;
 
     // Return the result
     callback({
@@ -58,5 +58,5 @@ DrunkCalculator.prototype.decrypt = function(encryptedValue, key, callback) {
   skipjackProc.stdout.on('data', function (data) {
     console.log('dec: ' + data);
     callback(+data);
-  });  
+  });
 };
