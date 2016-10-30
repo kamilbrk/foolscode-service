@@ -32,25 +32,17 @@
             console.log('Response:', response);
 
 
-            $state.go('investments', { level: response });
+            if (response && response.alcoholLevel) {
+              $state.go('investments', { level: response });
+            }
+            else {
+              showAlert(); 
+            }
             
-
-            // showAlert();
-
-
-            // new page
-            // please enter your drunk factor auth code
-            // type it
-            // send to /api/auth/decrypt
-            //   username string
-            //   code string
-            //   200 ok if drunk enough
-            //   400 if not enough
-            //   
-            // 
-            // 
           }, function (error) {
             console.log('Error!', error);
+
+            showAlert();
           });
       }
       else {
@@ -58,18 +50,16 @@
       }
     }
 
-    // function showAlert (success) {
-    //   $mdDialog.show(
-    //     $mdDialog.alert()
-    //       .parent(angular.element(document.querySelector('#popupContainer')))
-    //       .clickOutsideToClose(true)
-    //       .title('This is an alert title')
-    //       .textContent('You can specify some description text in here.')
-    //       .ariaLabel('Alert Dialog Demo')
-    //       .ok('Got it!')
-    //       .targetEvent(ev)
-    //   );
-    // }
+    function showAlert () {
+      $mdDialog.show(
+        $mdDialog.alert()
+          .clickOutsideToClose(true)
+          .title('You are not drunk enough!')
+          .textContent('Go and get some drink!')
+          .ariaLabel('Not drunk enough!')
+          .ok('Will do!');
+      );
+    }
   }
 
 })();

@@ -9,8 +9,13 @@
 
   function InvestmentsCtrl ($stateParams, API, Chartist) {
     var inv = this;
+    var _level;
+
+    if ($stateParams.level !== 'undefined') {
+      _level = $stateParams.level / 1000;
+    }
     
-    inv.level = typeof $stateParams.level !== 'undefined' ? $stateParams.level : 0;
+    inv.level = _level ? _level : 0;
 
     // var _chartMax = 100;
 
