@@ -7,31 +7,31 @@
 
 
 
-  function InvestmentsCtrl ($stateParams, API, Chartist) {
+  function InvestmentsCtrl ($state, $stateParams, API, Chartist) {
     var inv = this;
-    var _level;
 
-    if ($stateParams.level !== 'undefined') {
-      _level = $stateParams.level / 1000;
+    if ($stateParams.level === -1) {
+      $state.go('verify');
+      return;
     }
-    
+
+    var _level = $stateParams.level / 1000;
     inv.level = _level ? _level : 0;
 
-    // var _chartMax = 100;
+    var _message = 'You barerly made it through. Here are some investments:';
 
-    // var chart = new Chartist.Pie('.ct-chart', {
-    //   series: [60]
-    // }, {
-    //   donut: true,
-    //   donutWidth: 40,
-    //   startAngle: 270,
-    //   total: _chartMax * 2,
-    //   showLabel: true,
-    //   labelInterpolationFnc: function (value) {
-    //     return Math.round(value / _chartMax * 100) + '%';
-    //   }
-    // });
+    if (inv.level <= 0.8) {
+      _message = 'Awesome, good enough! Let\'s do something irresponsible:';
+    }
+    else if (inv.level <= 0.9) {
+      _message = 'Few drinks, eh? Solid offers below:';
+    }
+    else if (inv.level <= 1) {
+      _message = 'You are smashed! Please seek medical help immediately! Or...';
+    }
 
+    inv.message = _message;
+    
     API.getInvestments(inv.level)
       .then(function (investments) {
         inv.investments = investments;

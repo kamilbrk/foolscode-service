@@ -32,8 +32,8 @@
             console.log('Response:', response);
 
 
-            if (response && response.alcoholLevel) {
-              $state.go('investments', { level: response.alcoholLevel });
+            if (response && typeof response.alcoholLevel !== 'undefine') {
+              $state.go('investments', { level: 1000 - response.alcoholLevel });
             }
             else {
               showAlert(); 

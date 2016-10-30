@@ -8,7 +8,7 @@
   </div>
 
   <div>
-    <md-subheader class="md-primary">Available investments:</md-subheader>
+    <md-subheader class="md-primary">{{ inv.message }}</md-subheader>
     <md-content>
       <md-list-item class="md-2-line" ng-repeat="investment in inv.investments" ng-click="null">
         <div class="md-list-item-text with-sparkline" layout="column">

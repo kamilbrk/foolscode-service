@@ -68,7 +68,7 @@
         parent: 'app',
         url: '/investments',
         params: {
-          level: 0
+          level: -1
         },
         templateUrl: 'investments/investments.html',
         controller: 'InvestmentsCtrl as inv',

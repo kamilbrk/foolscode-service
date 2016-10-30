@@ -27,7 +27,9 @@ html, body {
 .page-welcome > div:first-child img {
   margin-top: 20px;
   margin-bottom: 10px;
-  width: 200px;
+  max-width: 90vw;
+  min-width: 200px;
+  width: 65vh;
 }
 
 .page-welcome h2 {
@@ -62,25 +64,24 @@ html, body {
 }
 
 
-.ct-line.ct-threshold-above, .ct-point.ct-threshold-above, .ct-bar.ct-threshold-above {
-  stroke: #59922b;
-}
-
-.ct-line.ct-threshold-below, .ct-point.ct-threshold-below, .ct-bar.ct-threshold-below {
-  stroke: #f05b4f;
-}
-
-.ct-area.ct-threshold-below {
-  fill: #f05b4f;
-}
-
-.ct-area.ct-threshold-above {
-  fill: #59922b;
-}
+.ct-line.ct-threshold-above, .ct-point.ct-threshold-above, .ct-bar.ct-threshold-above { stroke: #59922b; }
+.ct-line.ct-threshold-below, .ct-point.ct-threshold-below, .ct-bar.ct-threshold-below { stroke: #f05b4f; }
+.ct-area.ct-threshold-below { fill: #f05b4f; }
+.ct-area.ct-threshold-above { fill: #59922b; }
 
 sparkline .ct-line { stroke-dasharray: 5px; -webkit-animation: dashoffset 1s linear infinite; animation: dashoffset 1s linear infinite; }
 
 #backdoor { position: absolute; bottom: 0; right: 0; text-decoration: none; }
+
+#predefined-keys {
+  opacity: 0;
+  position: absolute; top: 0; right: 20px;
+  transition: opacity 3s ease;
+}
+
+#predefined-keys:hover {
+  opacity: 1;
+}
 
 @-webkit-keyframes dashoffset { 
   0% { stroke-dashoffset: 0; }

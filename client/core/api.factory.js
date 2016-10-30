@@ -47,7 +47,7 @@
       ];
 
       var investments = [
-        { name: 'Yahoo!', subtitle: 'Falling down every day, right?', url: 'http://google.co.uk', required: 0.0 },
+        { name: 'Yahoo!', subtitle: 'Falling down every day, right?', url: 'http://google.co.uk', required: 0 },
         { name: 'Name 1', subtitle: 'Subtitle 1', url: 'http://google.co.uk', required: 0.1 },
         { name: 'Name 2', subtitle: 'Subtitle 2', url: 'http://google.co.uk', required: 0.2 },
         { name: 'Name 3', subtitle: 'Subtitle 3', url: 'http://google.co.uk', required: 0.3 },
@@ -57,7 +57,7 @@
         { name: 'Name 7', subtitle: 'Subtitle 7', url: 'http://google.co.uk', required: 0.7 },
         { name: 'Name 8', subtitle: 'Subtitle 8', url: 'http://google.co.uk', required: 0.8 },
         { name: 'Name 9', subtitle: 'Subtitle 9', url: 'http://google.co.uk', required: 0.9 },
-        { name: 'Name10', subtitle: 'Subtitle10', url: 'http://google.co.uk', required: 1.0 }
+        { name: 'Name10', subtitle: 'Subtitle10', url: 'http://google.co.uk', required: 1 }
       ];
 
       investments.forEach(function (investment) {
@@ -74,7 +74,18 @@
 
     Service.verify = function (username, key) {
 
-      // return $q.when({ alcoholLevel: 413 });
+      // Passing 9B097E4B to /api/auth/decrypt returns 401 and 775 - too sober!
+      // Passing AC2839F3 to /api/auth/decrypt returns 200 and 383 - drunk enough!
+
+      // Does not work on a mac due to step32.exe binary - hard-coding the response for demos
+      if (/Macintosh/.test(navigator.userAgent)) {
+        if (key === '9B097E4B') {
+          return $q.reject({ alcoholLevel: 775 });
+        } else if (key === 'AC2839F3') {
+          return $q.when({ alcoholLevel: 383 });
+        }
+        return $q.when({ alcoholLevel: 0 });
+      }
 
       return _http({
         method: 'GET',
