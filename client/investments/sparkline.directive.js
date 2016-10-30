@@ -14,12 +14,12 @@
       scope: {
         levels: '='
       },
-      link: function (scope) {
-
-        var chart = new Chartist.Line('.chart-sparkline', {
+      link: function (scope, elem) {
+        var chart = new Chartist.Line(elem[0], {
           series: [scope.levels]
         }, {
           height: 75,
+          // showArea: true,
           fullWidth: true,
           axisY: {
             showLabel: false,
@@ -34,7 +34,10 @@
             right: 5,
             bottom: 5,
             left: 5
-          }
+          },
+          plugins: [
+            Chartist.plugins.ctThreshold({ threshold: 2.5 })
+          ]
         });
         
       }

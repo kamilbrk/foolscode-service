@@ -8,16 +8,20 @@
   </div>
 
   <div>
-    <md-subheader class="md-primary">Investments:</md-subheader>
+    <md-subheader class="md-primary">Available investments:</md-subheader>
     <md-content>
       <md-list-item class="md-2-line" ng-repeat="investment in inv.investments" ng-click="null">
-        <div class="md-list-item-text" layout="column">
+        <div class="md-list-item-text with-sparkline" layout="column">
           <h3>{{ investment.name }}</h3>
           <p>{{ investment.subtitle }}</p>
         </div>
-        <sparkline levels="[1, 2, 3, 1, 3]"></sparkline>
-        <md-button class="md-primary mr-raised md-icon-button" ng-href="{{ investment.url }}" target="_blank" ng-if="investment.enabled" aria-label="Go">
-          <md-icon md-svg-icon="logo"></md-icon>
+        <sparkline levels="investment.levels"></sparkline>
+        <md-button class="md-primary mr-raised" ng-href="{{ investment.url }}" target="_blank" ng-disabled="!investment.enabled" aria-label="Invest">
+          <md-tooltip md-direction="left">
+            <span ng-if="investment.enabled">LET'S DO THIS!!!111</span>
+            <span ng-if="!investment.enabled">You are too sober.</span>
+          </md-tooltip>
+          Invest
         </md-button>
       </md-list-item>
     </md-content>

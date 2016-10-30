@@ -39,8 +39,15 @@
 
     Service.getInvestments = function (level) {
 
+      var someLevels = [
+        [4,3,3,2,0],
+        [5,2,2,3,0],
+        [3,1,1,2,0],
+        [1,4,0,0,0]
+      ];
+
       var investments = [
-        { name: 'Yahoo!', subtitle: 'Falling down every day.', url: 'http://google.co.uk', required: 0.0 },
+        { name: 'Yahoo!', subtitle: 'Falling down every day, right?', url: 'http://google.co.uk', required: 0.0 },
         { name: 'Name 1', subtitle: 'Subtitle 1', url: 'http://google.co.uk', required: 0.1 },
         { name: 'Name 2', subtitle: 'Subtitle 2', url: 'http://google.co.uk', required: 0.2 },
         { name: 'Name 3', subtitle: 'Subtitle 3', url: 'http://google.co.uk', required: 0.3 },
@@ -54,6 +61,9 @@
       ];
 
       investments.forEach(function (investment) {
+
+        investment.levels = someLevels[getRandomInt(0, someLevels.length)];
+        
         if (investment.required <= level) {
           investment.enabled = true;
         }
@@ -64,13 +74,19 @@
 
     Service.verify = function (username, key) {
 
-      return $q.when(0.7);
+      // return $q.when(0.7);
 
       return _http({
         method: 'GET',
         url: 'auth/decrypt?user=' + username + '&key=' + key
       });
     };
+
+    function getRandomInt (min, max) {
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(Math.random() * (max - min)) + min;
+    }
 
     function _http (request) {
       request.url = _baseURL + request.url;

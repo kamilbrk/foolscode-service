@@ -43,4 +43,51 @@ html, body {
 .page-investments .gauge-inside { height: 200px; margin-bottom: -80px; }
 .page-investments .chart-gauge { height: 200px; }
 .page-investments .chart-gauge .ct-label { dominant-baseline: inherit; font-size: 2em; }
-.page-investments .chart-sparkline { margin-bottom: -37.5px; }
+/*.page-investments .chart-sparkline { margin-bottom: -10px; }*/
+.page-investments sparkline { height: 41px; }
+
+
+@media (max-width: 600px) {
+
+  .page-investments .with-sparkline {
+    margin-bottom: 65px !important;
+  }
+
+  .page-investments sparkline { 
+    position: absolute;
+    left: -25px;
+    top: 60px;
+    width: 100%;
+  }
+}
+
+
+.ct-line.ct-threshold-above, .ct-point.ct-threshold-above, .ct-bar.ct-threshold-above {
+  stroke: #59922b;
+}
+
+.ct-line.ct-threshold-below, .ct-point.ct-threshold-below, .ct-bar.ct-threshold-below {
+  stroke: #f05b4f;
+}
+
+.ct-area.ct-threshold-below {
+  fill: #f05b4f;
+}
+
+.ct-area.ct-threshold-above {
+  fill: #59922b;
+}
+
+sparkline .ct-line { stroke-dasharray: 5px; -webkit-animation: dashoffset 1s linear infinite; animation: dashoffset 1s linear infinite; }
+
+#backdoor { position: absolute; bottom: 0; right: 0; text-decoration: none; }
+
+@-webkit-keyframes dashoffset { 
+  0% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: -20px; }
+}
+
+@keyframes dashoffset { 
+  0% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: -20px; }
+}

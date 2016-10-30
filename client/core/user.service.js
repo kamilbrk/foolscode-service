@@ -45,8 +45,13 @@
     }
 
     function save () {
-      localStorage.setItem('signedIn', _signedIn);
-      localStorage.setItem('username', _username);
+      _signedIn ? 
+        localStorage.setItem('signedIn', _signedIn) :
+        localStorage.removeItem('signedIn');
+
+      _username ?
+        localStorage.setItem('username', _username) :
+        localStorage.removeItem('username');
     }
 
     init();

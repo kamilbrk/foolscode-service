@@ -66,7 +66,10 @@
       // Investment page
       .state('investments', {
         parent: 'app',
-        url: '/investments/:level',
+        url: '/investments',
+        params: {
+          level: 0
+        },
         templateUrl: 'investments/investments.html',
         controller: 'InvestmentsCtrl as inv',
         resolve: {

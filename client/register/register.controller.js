@@ -7,7 +7,7 @@
 
 
 
-  function RegisterCtrl (API, QRCode) {
+  function RegisterCtrl ($state, API, QRCode, User) {
     var reg = this;
     var _qr;
 
@@ -45,6 +45,10 @@
         return API.register(reg.data.username, reg.data.password, reg.data.key)
           .then(function (response) {
             console.log('Response:', response);
+
+            User.signIn(reg.data.username);
+            $state.go('verify');
+
           }, function (error) {
             console.log('Error!', error);
           });
