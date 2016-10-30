@@ -57,7 +57,7 @@
           .title('You are not drunk enough!')
           .textContent('Go and get some drink!')
           .ariaLabel('Not drunk enough!')
-          .ok('Will do!');
+          .ok('Will do!')
       );
     }
   }
